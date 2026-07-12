@@ -1,0 +1,65 @@
+/* ==========================================================================
+   ADMIN LOGIN (SECURITY TERMINAL)
+   ========================================================================== */
+
+/* Vertically center the login form */
+main.container > .row.justify-content-center {
+    min-height: calc(100vh - 250px);
+    align-items: center;
+}
+
+/* Secure Terminal Wrapper */
+main.container .col-md-6 .card.shadow-sm {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4),
+                0 0 40px rgba(37, 99, 235, 0.15) !important;
+    border: 1px solid rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Futuristic 'Scanning Line' effect on the top edge */
+main.container .col-md-6 .card.shadow-sm::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
+    animation: secureScan 3s linear infinite;
+    opacity: 0.7;
+}
+
+main.container .col-md-6 .card.shadow-sm h2.mb-4 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem !important;
+}
+
+/* Authentication Errors (Neon Warning) */
+main.container .col-md-6 .alert.alert-danger {
+    background: rgba(220, 38, 38, 0.1); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: var(--clr-danger);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+    box-shadow: inset 0 0 10px rgba(220, 38, 38, 0.1);
+    padding: 1rem;
+    animation: shakeError 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Full-width CTA for login */
+main.container .col-md-6 form .btn-primary {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.85rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}

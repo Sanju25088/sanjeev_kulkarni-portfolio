@@ -1,0 +1,54 @@
+/* ==========================================================================
+   TABLET RESPONSIVE (< 992px)
+   ========================================================================== */
+@media (max-width: 991px) {
+    main.container { padding-top: 5rem !important; }
+    
+    /* Adjust Hero for smaller screens */
+    .profile-card .d-flex { flex-direction: column; text-align: center; align-items: center !important; }
+    .profile-card .text-end { text-align: center !important; margin-top: 1.5rem; width: 100%; }
+    .profile-image { width: 120px; height: 120px; margin-bottom: 1rem; }
+    
+    /* Dashboard Header */
+    main.container > .d-flex.mb-4 { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+    /* Compress Spacing */
+    main.container section { padding: 3rem 0; }
+    .card.shadow-sm, .section-card, .profile-card { padding: 1.5rem !important; }
+    
+    /* Typography Scaling */
+    .profile-card h1 { font-size: 2.1rem; }
+    .section-title { font-size: 1.8rem; }
+    h2 { font-size: 1.45rem; }
+    p, li { font-size: 0.98rem; }
+    
+    /* Convert horizontal forms and buttons to stack */
+    main.container form .btn,
+    .btn-group { width: 100%; display: flex; flex-direction: column; gap: 0.5rem; }
+    .btn-group .btn { border-radius: 8px !important; margin: 0 !important; }
+    
+    /* Timelines */
+    .section-card ul.list-unstyled li { padding-left: 1rem; }
+    .section-card ul.list-unstyled li .d-flex { flex-direction: column; gap: 0.8rem; }
+    
+    /* Skill Grid */
+    .skill-card .d-flex { flex-direction: column; align-items: center; text-align: center; }
+    
+    /* Modals & Login Box */
+    main.container > .card.shadow-sm[style*="max-width"],
+    main.container .col-md-6 .card { margin: 2rem 1rem; padding: 2rem 1rem !important; width: auto; }
+}
+
+/* ==========================================================================
+   SMALL MOBILE (< 480px)
+   ========================================================================== */
+@media (max-width: 479px) {
+    /* Scale down complex inputs for very small screens */
+    form input[type="file"] { padding: 1.5rem 1rem; text-align: center; }
+    form input[type="file"]::-webkit-file-upload-button { display: block; margin: 0 auto 1rem auto; }
+}

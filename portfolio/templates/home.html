@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block background_video %}
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="{% get_media_prefix %}background/4_ved.mp4" type="video/mp4">
+</video>
+{% endblock %}
+
+{% block content %}
+    {% include 'shared_portfolio_content.html' with admin_mode=False %}
+{% endblock %}

@@ -1,0 +1,26 @@
+form label { font-family: var(--font-heading); color: var(--text-muted); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Text Inputs & Selects */
+form input[type="text"], form input[type="email"], form input[type="password"], 
+form input[type="number"], form textarea, form select {
+    width: 100%; background: rgba(0, 0, 0, 0.25); border: 1px solid var(--glass-border); color: var(--text-main);
+    padding: 0.8rem 1.2rem; border-radius: 12px; font-family: var(--font-body); transition: var(--transition-smooth); outline: none;
+}
+form input:focus, form textarea:focus, form select:focus {
+    background: rgba(0, 0, 0, 0.4); border-color: var(--clr-primary);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.2), inset 0 0 8px rgba(37, 99, 235, 0.2); transform: translateY(-1px);
+}
+
+/* File Upload Dropzones */
+form input[type="file"] {
+    position: relative; padding: 2rem 1.5rem; background: rgba(0, 0, 0, 0.2); border: 2px dashed rgba(255, 255, 255, 0.15); border-radius: 16px; width: 100%; color: var(--text-muted); transition: var(--transition-smooth);
+}
+form input[type="file"]:hover { background: rgba(37, 99, 235, 0.05); border-color: var(--clr-primary); }
+form input[type="file"]::-webkit-file-upload-button { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); color: var(--text-main); padding: 0.5rem 1.2rem; border-radius: 8px; cursor: pointer; transition: var(--transition-smooth); margin-right: 1.5rem; }
+
+/* Checkboxes & Radios */
+form input[type="checkbox"], form input[type="radio"] {
+    appearance: none; -webkit-appearance: none; width: 22px; height: 22px; background: rgba(0, 0, 0, 0.3); border: 2px solid var(--glass-border); border-radius: 6px; display: inline-block; vertical-align: middle; cursor: pointer; position: relative; margin-right: 10px; transition: var(--transition-smooth);
+}
+form input[type="radio"] { border-radius: 50%; }
+form input[type="checkbox"]:checked, form input[type="radio"]:checked { background: var(--clr-primary); border-color: var(--clr-accent); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }

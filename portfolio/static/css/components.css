@@ -1,0 +1,61 @@
+/* Universal Glass Card (Replaces repeated shadow-sm styles) */
+.card.shadow-sm, .section-card.bg-white, .profile-card.bg-white {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-main) !important;
+    transition: var(--transition-smooth);
+}
+
+/* Universal Button Geometry */
+.btn {
+    font-family: var(--font-heading); font-size: 0.9rem; font-weight: 500;
+    border-radius: 10px; padding: 0.6rem 1.5rem; transition: var(--transition-smooth);
+    display: inline-flex; align-items: center; justify-content: center;
+}
+.btn:active { transform: translateY(1px) !important; box-shadow: none !important; }
+
+.btn-primary { background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent)) !important; color: #fff !important; border: none !important; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); }
+.btn-primary:hover { box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+
+.btn-secondary { background: rgba(255, 255, 255, 0.03) !important; color: var(--text-main) !important; border: 1px solid var(--glass-border) !important; }
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.08) !important; border-color: var(--clr-accent) !important; color: #fff !important; transform: translateY(-2px); }
+
+.btn-danger { background: linear-gradient(135deg, rgba(220, 38, 38, 0.7), rgba(153, 27, 27, 0.8)) !important; color: #fff !important; border: 1px solid rgba(239, 68, 68, 0.3) !important; }
+.btn-danger:hover { background: linear-gradient(135deg, #ef4444, #dc2626) !important; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4); transform: translateY(-2px); }
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.3rem;
+    text-align: left;
+    padding: 0.6rem !important;
+    min-height: 118px;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+}
+
+.skill-image-wrapper {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-image {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}

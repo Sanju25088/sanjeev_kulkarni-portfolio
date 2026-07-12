@@ -1,0 +1,77 @@
+/* ==========================================================================
+   ADMIN DASHBOARD HEADER
+   ========================================================================== */
+
+/* Dashboard Header Panel */
+main.container > .d-flex.mb-4 {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: slideDownFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+main.container > .d-flex.mb-4 h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0.25rem;
+    background: linear-gradient(135deg, #ffffff 20%, var(--text-accent) 100%);
+    background-clip: text;            /* standard property */
+    -webkit-background-clip: text;    /* WebKit browsers */
+    -webkit-text-fill-color: transparent;
+    color: transparent;               /* fallback */
+    text-shadow: 0 4px 20px rgba(96, 165, 250, 0.15);
+    letter-spacing: -0.5px;
+}
+
+main.container > .d-flex.mb-4 .text-muted {
+    color: var(--text-muted) !important;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   CONFIRM DELETE MODAL
+   ========================================================================== */
+
+/* Isolating the Delete Confirmation Card */
+main.container > .card.shadow-sm:not(:has(form input[type="text"])) {
+    border: 1px solid rgba(239, 68, 68, 0.3) !important; 
+    max-width: 480px;
+    margin: 6rem auto;
+    text-align: center;
+    padding: 3rem 2rem !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                0 0 30px rgba(220, 38, 38, 0); 
+    animation: modalPopIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+               dangerPulse 4s ease-in-out infinite alternate 0.6s !important; /* Breathing red glow */
+}
+
+main.container > .card.shadow-sm:not(:has(form input[type="text"])) h2 {
+    color: #f87171; 
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(248, 113, 113, 0.3);
+}
+
+main.container > .card.shadow-sm:not(:has(form input[type="text"])) p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+main.container > .card.shadow-sm:not(:has(form input[type="text"])) form {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+main.container > .card.shadow-sm:not(:has(form input[type="text"])) form .ms-2 {
+    margin-left: 0 !important;
+}
+

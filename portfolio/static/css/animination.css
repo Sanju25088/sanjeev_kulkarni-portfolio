@@ -1,0 +1,7 @@
+@keyframes panGrid { 0% { transform: translateY(0); } 100% { transform: translateY(40px); } }
+@keyframes pulseBlobs { 0% { transform: scale(1) translateY(0); opacity: 0.8; } 50% { transform: scale(1.05) translateY(-20px); opacity: 1; } 100% { transform: scale(1) translateY(0); opacity: 0.8; } }
+@keyframes floatAvatar { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+@keyframes slideDownFade { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes slideUpFade { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes secureScan { 0% { left: -100%; } 50% { left: 100%; } 100% { left: 100%; } }
+@keyframes modalPopIn { 0% { opacity: 0; transform: scale(0.9) translateY(20px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
