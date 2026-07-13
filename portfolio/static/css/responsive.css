@@ -1,190 +1,379 @@
 /* ==========================================================================
-   SKILLS GRID (Base / Desktop) 
+
+   SKILLS GRID (Base / Desktop)
+
    Place this outside/above your media queries
+
    ========================================================================== */
+
 .skills-grid {
+
     display: grid;
+
     /* Automatically fits as many 200px (or larger) cards into a row as possible */
+
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
     gap: 1.5rem;
+
 }
+
+
 
 .skills-grid .skill-card {
+
     height: 100%;
-    margin-bottom: 0; 
+
+    margin-bottom: 0;
+
 }
 
+
+
 /* ==========================================================================
+
    TABLET RESPONSIVE (< 992px)
+
    ========================================================================== */
+
 @media (max-width: 991.98px) {
-    main.container { 
-        padding-top: 4rem !important; 
+
+    main.container {
+
+        padding-top: 4rem !important;
+
     }
-    
+
+   
+
     /* CRITICAL FIX: Reset the desktop transform offsets so they don't break mobile */
+
     .profile-card { transform: translateX(0) !important; }
+
     .profile-card h1 { transform: translateX(0) !important; }
-    
+
+   
+
     /* Adjust Hero for smaller screens */
-    .profile-card .d-flex { 
-        flex-direction: column; 
-        text-align: center; 
-        align-items: center !important; 
-        gap: 1.5rem; 
+
+    .profile-card .d-flex {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        align-items: center !important;
+
+        gap: 1.5rem;
+
     }
-    
-    .profile-card .text-end { 
-        text-align: center !important; 
-        width: 100%; 
+
+   
+
+    .profile-card .text-end {
+
+        text-align: center !important;
+
+        width: 100%;
+
     }
-    
+
+   
+
     /* Dashboard Header */
-    main.container > .d-flex.mb-4 { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 1.25rem; 
-        padding: 1.5rem; 
+
+    main.container > .d-flex.mb-4 {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 1.25rem;
+
+        padding: 1.5rem;
+
     }
+
 }
 
+
+
 /* ==========================================================================
+
    MOBILE RESPONSIVE (< 768px)
+
    ========================================================================== */
+
 @media (max-width: 767.98px) {
+
     /* Compress Spacing */
-    main.container section { 
-        padding: 2.5rem 0; 
+
+    main.container section {
+
+        padding: 2.5rem 0;
+
     }
-    
-    .card.shadow-sm, 
-    .section-card { 
-        padding: 1.25rem !important; 
+
+   
+
+    .card.shadow-sm,
+
+    .section-card {
+
+        padding: 1.25rem !important;
+
     }
-    
+
+   
+
     /* Typography Scaling */
+
     .profile-card h1 { font-size: clamp(5rem, 6.5vw, 6rem); line-height: 1.2; }
+
     .section-title { font-size: clamp(1.5rem, 4vw, 1.8rem); }
+
     h2 { font-size: 1.35rem; }
-    p, li { font-size: 1rem; line-height: 1.6; } 
-    
+
+    p, li { font-size: 1rem; line-height: 1.6; }
+
+   
+
     /* Centering Fixes */
+
     .profile-card {
+
         display: flex !important;
+
         flex-direction: column !important;
+
         align-items: center !important;
+
         text-align: center !important;
+
         padding-left: 15px !important;
+
         padding-right: 15px !important;
+
         padding-top: 1.25rem !important;
+
         padding-bottom: 1.25rem !important;
+
     }
+
+
 
     .profile-card .d-flex,
+
     .profile-card .justify-content-start {
+
         justify-content: center !important;
+
         width: 100%;
+
     }
+
+
 
     .profile-card .btn {
+
         width: 100% !important;
-        max-width: 250px; 
-        margin: 0 auto 12px auto !important; 
+
+        max-width: 250px;
+
+        margin: 0 auto 12px auto !important;
+
         display: flex !important;
+
         justify-content: center !important;
+
     }
+
+
 
     /* Bio Text Overflow Fix */
+
     .profile-card p,
-    .profile-about { 
-        padding-left: 15px; 
+
+    .profile-about {
+
+        padding-left: 15px;
+
         padding-right: 15px;
+
         box-sizing: border-box;
+
         width: 100%;
-        margin: 0 auto 1rem auto; 
+
+        margin: 0 auto 1rem auto;
+
     }
+
+
 
     /* Convert horizontal forms and buttons to stack */
+
     main.container form .btn,
-    .btn-group { 
-        width: 100%; 
-        display: flex; 
-        flex-direction: column; 
-        gap: 0.75rem; 
+
+    .btn-group {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 0.75rem;
+
     }
-    
+
+   
+
     /* Mobile Touch Targets */
+
     .btn {
+
         min-height: 44px;
+
         display: inline-flex;
+
         align-items: center;
+
         justify-content: center;
+
     }
-    
-    .btn-group .btn { 
-        border-radius: 8px !important; 
-        margin: 0 !important; 
+
+   
+
+    .btn-group .btn {
+
+        border-radius: 8px !important;
+
+        margin: 0 !important;
+
     }
-    
+
+   
+
     /* Timelines */
-    .section-card ul.list-unstyled li { 
-        padding-left: 0.5rem; 
+
+    .section-card ul.list-unstyled li {
+
+        padding-left: 0.5rem;
+
     }
-    
-    .section-card ul.list-unstyled li .d-flex { 
-        flex-direction: column; 
-        gap: 0.5rem; 
-        align-items: flex-start; 
+
+   
+
+    .section-card ul.list-unstyled li .d-flex {
+
+        flex-direction: column;
+
+        gap: 0.5rem;
+
+        align-items: flex-start;
+
     }
-    
+
+   
+
     /* Modals & Login Box */
-    .auth-card, 
-    main.container .col-md-6 .card { 
-        margin: 1.5rem auto; 
-        padding: 1.5rem !important; 
-        width: 100%; 
+
+    .auth-card,
+
+    main.container .col-md-6 .card {
+
+        margin: 1.5rem auto;
+
+        padding: 1.5rem !important;
+
+        width: 100%;
+
         max-width: 100%;
+
     }
+
+
 
     /* --- UPDATED SKILL GRID (2 in a row on standard mobile) --- */
+
     .skills-grid {
+
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem; 
+
+        gap: 1rem;
+
     }
+
+
 
     .skill-card {
+
         padding: 1rem !important; /* Tighter padding to fit 2 cards comfortably */
+
     }
 
-    .skill-card .d-flex { 
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
+
+
+    .skill-card .d-flex {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
         gap: 0.5rem;
+
     }
+
 }
 
+
+
 /* ==========================================================================
+
    SMALL MOBILE (< 480px)
+
    ========================================================================== */
+
 @media (max-width: 479.98px) {
+
     /* Scale down complex inputs */
-    form input[type="file"] { 
-        padding: 1rem 0.5rem; 
-        text-align: center; 
+
+    form input[type="file"] {
+
+        padding: 1rem 0.5rem;
+
+        text-align: center;
+
         font-size: 0.9rem;
-    }
-    
-    form input[type="file"]::-webkit-file-upload-button { 
-        display: block; 
-        margin: 0 auto 0.75rem auto; 
-        width: 100%; 
+
     }
 
-    /* --- UPDATED SKILL GRID (1 in a row on tiny screens) --- */
-    /* Note: If you prefer they stay 2-in-a-row even on tiny screens, 
-       you can delete this specific `.skills-grid` block. */
-    .skills-grid {
-        grid-template-columns: 1fr;
+   
+
+    form input[type="file"]::-webkit-file-upload-button {
+
+        display: block;
+
+        margin: 0 auto 0.75rem auto;
+
+        width: 100%;
+
     }
+
+
+
+    /* --- UPDATED SKILL GRID (1 in a row on tiny screens) --- */
+
+    /* Note: If you prefer they stay 2-in-a-row even on tiny screens,
+
+       you can delete this specific `.skills-grid` block. */
+
+    .skills-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
 }
