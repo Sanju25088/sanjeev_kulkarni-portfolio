@@ -13,28 +13,11 @@
 
     <div class="profile-layout d-flex flex-column flex-md-row gap-4 align-items-center align-items-md-start">
 
-        <div class="profile-image-wrapper">
-            {% if personal_info and personal_info.profile_photo %}
-            <img src="{{ personal_info.profile_photo.url }}" alt="{{ personal_info.full_name|default:'Profile Photo' }}"
-                class="profile-image">
-            {% else %}
-            <div
-                class="profile-image placeholder bg-secondary text-white d-flex align-items-center justify-content-center">
-                <span>No photo</span>
-            </div>
-            {% endif %}
-            <div class="social-icons">
-                {% if personal_info.linkedin %}
-                <a href="{{ personal_info.github }}" target="_blank"><i class="fa-brands fa-github"></i></a>
-                {% endif %}
-                <a href="{{ personal_info.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ personal_info.email }}" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-
-            </div>
-        </div>
+        
 
         <div class="profile-details flex-grow-1 text-center text-md-start">
             <h1 class="profile-name">{{ personal_info.full_name|default:'Your Name' }}</h1>
+            
             <p class="lead profile-designation">
                 {{ personal_info.designation|default:'Your designation' }} |
                 {{ personal_info.tagline|default:'A short tagline about you' }}
@@ -58,6 +41,15 @@
 
             </div>
             {% endif %}
+            
+            <div class="social-icons">
+                {% if personal_info.linkedin %}
+                <a href="{{ personal_info.github }}" target="_blank"><i class="fa-brands fa-github"></i></a>
+                {% endif %}
+                <a href="{{ personal_info.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ personal_info.email }}" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+
+            </div>
         </div>
     </div>
 </div>

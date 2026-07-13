@@ -1,18 +1,21 @@
 /* ==========================================================================
    TABLET RESPONSIVE (< 992px)
-   Note: Using 991.98px prevents 1px gap bugs on certain high-DPI displays
    ========================================================================== */
 @media (max-width: 991.98px) {
     main.container { 
-        padding-top: 4rem !important; /* Slightly less aggressive than 5rem */
+        padding-top: 4rem !important; 
     }
+    
+    /* CRITICAL FIX: Reset the desktop transform offsets so they don't break mobile */
+    .profile-card { transform: translateX(0) !important; }
+    .profile-card h1 { transform: translateX(0) !important; }
     
     /* Adjust Hero for smaller screens */
     .profile-card .d-flex { 
         flex-direction: column; 
         text-align: center; 
         align-items: center !important; 
-        gap: 1.5rem; /* Replaces margin-top on child elements */
+        gap: 1.5rem; 
     }
     
     .profile-card .text-end { 
@@ -21,7 +24,7 @@
     }
     
     .profile-image { 
-        width: 130px; /* Slightly larger for tablet focus */
+        width: 130px; 
         height: 130px; 
     }
     
@@ -48,19 +51,19 @@
         padding: 1.25rem !important; 
     }
     
-    /* Typography Scaling (Using Clamp for smoother resizing if supported, fallback to rem) */
+    /* Typography Scaling */
     .profile-card h1 { font-size: clamp(1.8rem, 5vw, 2.1rem); line-height: 1.2; }
     .section-title { font-size: clamp(1.5rem, 4vw, 1.8rem); }
     h2 { font-size: 1.35rem; }
-    p, li { font-size: 1rem; line-height: 1.6; } /* Boosted to 1rem for better mobile readability */
+    p, li { font-size: 1rem; line-height: 1.6; } 
     
-    /* --- FIX FOR CENTERING IMAGE, NAME & BUTTONS --- */
+    /* Centering Fixes */
     .profile-card {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        padding-left: 100px !important;
+        padding-left: 15px !important;
         padding-right: 15px !important;
         padding-top: 1.25rem !important;
         padding-bottom: 1.25rem !important;
@@ -84,19 +87,16 @@
         display: flex !important;
         justify-content: center !important;
     }
-    /* ----------------------------------------------- */
 
-    /* --- FIX FOR BIO TEXT CUTOFF --- */
-    .profile-card p { 
-        padding-left: 15px;  /* Changed from 100px so it doesn't push right */
+    /* Bio Text Overflow Fix */
+    .profile-card p,
+    .profile-about { 
+        padding-left: 15px; 
         padding-right: 15px;
         box-sizing: border-box;
         width: 100%;
-        word-wrap: break-word; 
-        overflow-wrap: break-word;
-        margin: 0 auto 1rem auto; /* Ensures the paragraph itself is centered */
+        margin: 0 auto 1rem auto; 
     }
-    /* ------------------------------- */
 
     /* Convert horizontal forms and buttons to stack */
     main.container form .btn,
@@ -107,7 +107,7 @@
         gap: 0.75rem; 
     }
     
-    /* Mobile Touch Targets: Ensure buttons are at least 44px tall */
+    /* Mobile Touch Targets */
     .btn {
         min-height: 44px;
         display: inline-flex;
@@ -122,13 +122,13 @@
     
     /* Timelines */
     .section-card ul.list-unstyled li { 
-        padding-left: 0.5rem; /* Reduced for mobile */
+        padding-left: 0.5rem; 
     }
     
     .section-card ul.list-unstyled li .d-flex { 
         flex-direction: column; 
         gap: 0.5rem; 
-        align-items: flex-start; /* Ensure left alignment when stacked */
+        align-items: flex-start; 
     }
     
     /* Skill Grid */
@@ -139,7 +139,7 @@
         gap: 0.5rem;
     }
     
-    /* Modals & Login Box - Replaced brittle style selector with structural targeting */
+    /* Modals & Login Box */
     .auth-card, 
     main.container .col-md-6 .card { 
         margin: 1.5rem auto; 
@@ -153,7 +153,7 @@
    SMALL MOBILE (< 480px)
    ========================================================================== */
 @media (max-width: 479.98px) {
-    /* Scale down complex inputs for very small screens */
+    /* Scale down complex inputs */
     form input[type="file"] { 
         padding: 1rem 0.5rem; 
         text-align: center; 
@@ -163,6 +163,6 @@
     form input[type="file"]::-webkit-file-upload-button { 
         display: block; 
         margin: 0 auto 0.75rem auto; 
-        width: 100%; /* Make the upload button full width on tiny screens */
+        width: 100%; 
     }
 }

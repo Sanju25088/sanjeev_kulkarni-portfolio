@@ -113,6 +113,7 @@ footer.bg-dark {
     align-items: center;
     gap: 32px;
     margin-top: 20px;
+    transform: translateX(30px);
 }
 
 .social-icons a{
