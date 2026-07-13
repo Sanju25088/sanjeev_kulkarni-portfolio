@@ -206,7 +206,7 @@
                         <div class="project-card p-3 h-100 border rounded bg-dark text-start">
                             <h5 class="mb-1 text-white">{{ project.title }}</h5>
                             {% if project.project_image %}
-                            <img src="{{ project.project_image.url }}" alt="{{ project.title }}"
+                            <img src="{% static project.project_image %}" alt="{{ project.title }}"
                                 class="img-fluid mb-2 rounded">
                             {% endif %}
                             {% if project.domain %}
