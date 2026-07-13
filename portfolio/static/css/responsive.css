@@ -1,54 +1,168 @@
 /* ==========================================================================
    TABLET RESPONSIVE (< 992px)
+   Note: Using 991.98px prevents 1px gap bugs on certain high-DPI displays
    ========================================================================== */
-@media (max-width: 991px) {
-    main.container { padding-top: 5rem !important; }
+@media (max-width: 991.98px) {
+    main.container { 
+        padding-top: 4rem !important; /* Slightly less aggressive than 5rem */
+    }
     
     /* Adjust Hero for smaller screens */
-    .profile-card .d-flex { flex-direction: column; text-align: center; align-items: center !important; }
-    .profile-card .text-end { text-align: center !important; margin-top: 1.5rem; width: 100%; }
-    .profile-image { width: 120px; height: 120px; margin-bottom: 1rem; }
+    .profile-card .d-flex { 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center !important; 
+        gap: 1.5rem; /* Replaces margin-top on child elements */
+    }
+    
+    .profile-card .text-end { 
+        text-align: center !important; 
+        width: 100%; 
+    }
+    
+    .profile-image { 
+        width: 130px; /* Slightly larger for tablet focus */
+        height: 130px; 
+    }
     
     /* Dashboard Header */
-    main.container > .d-flex.mb-4 { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
+    main.container > .d-flex.mb-4 { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 1.25rem; 
+        padding: 1.5rem; 
+    }
 }
 
 /* ==========================================================================
    MOBILE RESPONSIVE (< 768px)
    ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
     /* Compress Spacing */
-    main.container section { padding: 3rem 0; }
-    .card.shadow-sm, .section-card, .profile-card { padding: 1.5rem !important; }
+    main.container section { 
+        padding: 2.5rem 0; 
+    }
     
-    /* Typography Scaling */
-    .profile-card h1 { font-size: 2.1rem; }
-    .section-title { font-size: 1.8rem; }
-    h2 { font-size: 1.45rem; }
-    p, li { font-size: 0.98rem; }
+    .card.shadow-sm, 
+    .section-card { 
+        padding: 1.25rem !important; 
+    }
     
+    /* Typography Scaling (Using Clamp for smoother resizing if supported, fallback to rem) */
+    .profile-card h1 { font-size: clamp(1.8rem, 5vw, 2.1rem); line-height: 1.2; }
+    .section-title { font-size: clamp(1.5rem, 4vw, 1.8rem); }
+    h2 { font-size: 1.35rem; }
+    p, li { font-size: 1rem; line-height: 1.6; } /* Boosted to 1rem for better mobile readability */
+    
+    /* --- FIX FOR CENTERING IMAGE, NAME & BUTTONS --- */
+    .profile-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding-left: 100px !important;
+        padding-right: 15px !important;
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+
+    .profile-image {
+        margin: 0 auto 1rem auto !important;
+        display: block !important;
+    }
+
+    .profile-card .d-flex,
+    .profile-card .justify-content-start {
+        justify-content: center !important;
+        width: 100%;
+    }
+
+    .profile-card .btn {
+        width: 100% !important;
+        max-width: 250px; 
+        margin: 0 auto 12px auto !important; 
+        display: flex !important;
+        justify-content: center !important;
+    }
+    /* ----------------------------------------------- */
+
+    /* --- FIX FOR BIO TEXT CUTOFF --- */
+    .profile-card p { 
+        padding-left: 15px;  /* Changed from 100px so it doesn't push right */
+        padding-right: 15px;
+        box-sizing: border-box;
+        width: 100%;
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+        margin: 0 auto 1rem auto; /* Ensures the paragraph itself is centered */
+    }
+    /* ------------------------------- */
+
     /* Convert horizontal forms and buttons to stack */
     main.container form .btn,
-    .btn-group { width: 100%; display: flex; flex-direction: column; gap: 0.5rem; }
-    .btn-group .btn { border-radius: 8px !important; margin: 0 !important; }
+    .btn-group { 
+        width: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 0.75rem; 
+    }
+    
+    /* Mobile Touch Targets: Ensure buttons are at least 44px tall */
+    .btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn-group .btn { 
+        border-radius: 8px !important; 
+        margin: 0 !important; 
+    }
     
     /* Timelines */
-    .section-card ul.list-unstyled li { padding-left: 1rem; }
-    .section-card ul.list-unstyled li .d-flex { flex-direction: column; gap: 0.8rem; }
+    .section-card ul.list-unstyled li { 
+        padding-left: 0.5rem; /* Reduced for mobile */
+    }
+    
+    .section-card ul.list-unstyled li .d-flex { 
+        flex-direction: column; 
+        gap: 0.5rem; 
+        align-items: flex-start; /* Ensure left alignment when stacked */
+    }
     
     /* Skill Grid */
-    .skill-card .d-flex { flex-direction: column; align-items: center; text-align: center; }
+    .skill-card .d-flex { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        gap: 0.5rem;
+    }
     
-    /* Modals & Login Box */
-    main.container > .card.shadow-sm[style*="max-width"],
-    main.container .col-md-6 .card { margin: 2rem 1rem; padding: 2rem 1rem !important; width: auto; }
+    /* Modals & Login Box - Replaced brittle style selector with structural targeting */
+    .auth-card, 
+    main.container .col-md-6 .card { 
+        margin: 1.5rem auto; 
+        padding: 1.5rem !important; 
+        width: 100%; 
+        max-width: 100%;
+    }
 }
 
 /* ==========================================================================
    SMALL MOBILE (< 480px)
    ========================================================================== */
-@media (max-width: 479px) {
+@media (max-width: 479.98px) {
     /* Scale down complex inputs for very small screens */
-    form input[type="file"] { padding: 1.5rem 1rem; text-align: center; }
-    form input[type="file"]::-webkit-file-upload-button { display: block; margin: 0 auto 1rem auto; }
+    form input[type="file"] { 
+        padding: 1rem 0.5rem; 
+        text-align: center; 
+        font-size: 0.9rem;
+    }
+    
+    form input[type="file"]::-webkit-file-upload-button { 
+        display: block; 
+        margin: 0 auto 0.75rem auto; 
+        width: 100%; /* Make the upload button full width on tiny screens */
+    }
 }
