@@ -1,4 +1,20 @@
 /* ==========================================================================
+   SKILLS GRID (Base / Desktop) 
+   Place this outside/above your media queries
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    /* Automatically fits as many 200px (or larger) cards into a row as possible */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.skills-grid .skill-card {
+    height: 100%;
+    margin-bottom: 0; 
+}
+
+/* ==========================================================================
    TABLET RESPONSIVE (< 992px)
    ========================================================================== */
 @media (max-width: 991.98px) {
@@ -21,11 +37,6 @@
     .profile-card .text-end { 
         text-align: center !important; 
         width: 100%; 
-    }
-    
-    .profile-image { 
-        width: 130px; 
-        height: 130px; 
     }
     
     /* Dashboard Header */
@@ -52,7 +63,7 @@
     }
     
     /* Typography Scaling */
-    .profile-card h1 { font-size: clamp(1.8rem, 5vw, 2.1rem); line-height: 1.2; }
+    .profile-card h1 { font-size: clamp(5rem, 6.5vw, 6rem); line-height: 1.2; }
     .section-title { font-size: clamp(1.5rem, 4vw, 1.8rem); }
     h2 { font-size: 1.35rem; }
     p, li { font-size: 1rem; line-height: 1.6; } 
@@ -67,11 +78,6 @@
         padding-right: 15px !important;
         padding-top: 1.25rem !important;
         padding-bottom: 1.25rem !important;
-    }
-
-    .profile-image {
-        margin: 0 auto 1rem auto !important;
-        display: block !important;
     }
 
     .profile-card .d-flex,
@@ -131,14 +137,6 @@
         align-items: flex-start; 
     }
     
-    /* Skill Grid */
-    .skill-card .d-flex { 
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
-        gap: 0.5rem;
-    }
-    
     /* Modals & Login Box */
     .auth-card, 
     main.container .col-md-6 .card { 
@@ -146,6 +144,23 @@
         padding: 1.5rem !important; 
         width: 100%; 
         max-width: 100%;
+    }
+
+    /* --- UPDATED SKILL GRID (2 in a row on standard mobile) --- */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem; 
+    }
+
+    .skill-card {
+        padding: 1rem !important; /* Tighter padding to fit 2 cards comfortably */
+    }
+
+    .skill-card .d-flex { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        gap: 0.5rem;
     }
 }
 
@@ -164,5 +179,12 @@
         display: block; 
         margin: 0 auto 0.75rem auto; 
         width: 100%; 
+    }
+
+    /* --- UPDATED SKILL GRID (1 in a row on tiny screens) --- */
+    /* Note: If you prefer they stay 2-in-a-row even on tiny screens, 
+       you can delete this specific `.skills-grid` block. */
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 }
