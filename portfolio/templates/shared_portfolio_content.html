@@ -276,6 +276,8 @@
     </section>
 </div>
 
+
+
 <div class="col-12">
     <section id="certifications" class="section-card p-4 bg-white rounded shadow-sm h-100">
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -309,6 +311,42 @@
         {% endif %}
     </section>
 </div>
+
+<div class="col-12">
+    <section id="extracurricular" class="section-card p-4 bg-white rounded shadow-sm h-100">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Extracurricular Activities</h2>
+            {% if admin_mode and request.user.is_staff %}
+            <a href="{% url 'add_activity' %}" class="btn btn-primary btn-sm">Add</a>
+            {% endif %}
+        </div>
+        {% if activities %}
+        <ul class="list-unstyled mb-0">
+            {% for act in activities %}
+            <li class="mb-4">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <strong class="text-white">{{ act.event_name }}</strong><br>
+                        <span class="text-white">{{ act.role }} | {{ act.organization }}</span><br>
+                        <small class="text-info">{{ act.year|date:"Y" }}</small><br>
+                        <p class="mt-2 text-info">{{ act.description }}</p>
+                    </div>
+                    {% if admin_mode and request.user.is_staff %}
+                    <div class="btn-group ms-2" role="group">
+                        <a href="{% url 'edit_activity' act.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="{% url 'delete_activity' act.pk %}" class="btn btn-sm btn-outline-danger">Del</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-muted">No extracurricular activities available.</p>
+        {% endif %}
+    </section>
+</div>
+
 </div>
 
 <div class="row g-4">
@@ -341,6 +379,12 @@
 
         </section>
     </div>
+
+
+
+
+
+
 
 
     {% if admin_mode and request.user.is_staff %}
@@ -393,6 +437,8 @@
                 </table>
             </section>
         </div>
+
+
     </div>
     {% endif %}
 

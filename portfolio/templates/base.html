@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/components.css' %}">
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
     <link rel="stylesheet" href="{% static 'css/pages/portfolio.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     {% block extra_head %}{% endblock %}
     
@@ -31,11 +32,32 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home_page' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#internships">Internships</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-                </ul>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'home_page' %}">
+            <i class="fas fa-home me-1"></i> Home
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#education">
+            <i class="fas fa-graduation-cap me-1"></i> Education
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#internships">
+            <i class="fas fa-briefcase me-1"></i> Internships
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#certifications">
+            <i class="fas fa-certificate me-1"></i> Certifications
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#extracurricular">
+            <i class="fas fa-trophy me-1"></i> Achievements
+        </a>
+    </li>
+</ul>
             </div>
         </div>
     </nav>

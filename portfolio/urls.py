@@ -23,6 +23,17 @@ urlpatterns = [
     path('certifications/add/', views.add_certification, name='add_certification'),
     path('certifications/<int:pk>/edit/', views.edit_certification, name='edit_certification'),
     path('certifications/<int:pk>/delete/', views.delete_certification, name='delete_certification'),
+
+    # List all activities
+
+    # Add new activity
+    path("activities/add/", views.add_activity, name="add_activity"),
+
+    # Edit existing activity
+    path("activities/edit/<int:pk>/", views.edit_activity, name="edit_activity"),
+
+    # Delete activity
+    path("activities/delete/<int:pk>/", views.delete_activity, name="delete_activity"),
     path('contact/', views.contact, name='contact'),
     path('contact/delete/<int:pk>/', views.delete_contact, name='delete_contact'),
     path('login/', LoginView.as_view(template_name='login.html', redirect_authenticated_user=True), name='login'),

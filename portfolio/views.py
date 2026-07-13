@@ -35,7 +35,9 @@ def home_page(request):
         'internships': Internship.objects.prefetch_related('projects').all(),
         'projects': Key_Projects.objects.all(),
         'certifications': Certifications.objects.order_by('-year'),
-        'contact' : Contact.objects.all().order_by("-created_at")
+        'contact' : Contact.objects.all().order_by("-created_at"),
+        'activities' : Extracurricular_Activities.objects.all()
+
     }
     return render(request, 'home.html', context)
 
@@ -59,7 +61,9 @@ def dashboard(request):
         'internships': Internship.objects.prefetch_related('projects').all(),
         'projects': Key_Projects.objects.all(),
         'certifications': Certifications.objects.order_by('-year'),
-        'contact' : Contact.objects.all().order_by("-created_at")
+        'contact' : Contact.objects.all().order_by("-created_at"),
+        'activities' : Extracurricular_Activities.objects.all()
+
 
     }
     return render(request, 'dashboard.html', context)
@@ -323,3 +327,47 @@ def delete_contact(request, pk):
         return redirect('dashboard')
 
     return render(request, "confirm_delete.html", {'object': contact, 'title': 'Delete Contact'})
+
+
+@login_required(login_url='login')
+@user_passes_test(is_admin_user, login_url='login')
+# Add Activity
+def add_activity(request):
+    if request.method == "POST":
+        form = Extracurricular_ActivitiesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home_page")  # redirect to list view
+    else:
+        form = Extracurricular_ActivitiesForm()
+    return render(request, 'form_page.html', {'form': form, 'title': 'Add activity', 'submit_label': 'Add activity'})
+
+# Edit Activity
+
+@login_required(login_url='login')
+@user_passes_test(is_admin_user, login_url='login')
+def edit_activity(request, pk):
+    activity = get_object_or_404(Extracurricular_Activities, pk=pk)
+    if request.method == "POST":
+        form = Extracurricular_ActivitiesForm(request.POST, instance=activity)
+        if form.is_valid():
+            form.save()
+            return redirect("home_page")
+    else:
+        form = Extracurricular_ActivitiesForm(instance=activity)
+    return render(request, 'form_page.html', {'form': form, 'title': 'update activity', 'submit_label': 'update activity'})
+
+# Delete Activity
+@login_required(login_url='login')
+@user_passes_test(is_admin_user, login_url='login')
+def delete_activity(request, pk):
+    activity = get_object_or_404(Extracurricular_Activities, pk=pk)
+    if request.method == "POST":
+        activity.delete()
+        return redirect("home_page")
+    return render(request, 'confirm_delete.html', {'object': activity, 'title': 'Delete activity'})
+
+# List Activities (optional helper view)
+
+
+       
