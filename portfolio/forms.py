@@ -69,7 +69,8 @@ class KeyProjectsForm(forms.ModelForm):
             'technologies',
             'domain',
             'internship',
-            'project_image'
+            'project_image',
+            'project_link'
         ]
 
 

@@ -72,6 +72,7 @@ class Key_Projects(models.Model):
     domain = models.CharField(max_length=50,null=True,blank = True)
     internship = models.ForeignKey(Internship, on_delete=models.CASCADE, related_name="projects", blank =True,null=True)
     project_image = models.ImageField(upload_to='project_image/',blank=True,null = True)
+    project_link = models.URLField(max_length=200,null =True,blank = True)
 
 class Certifications(models.Model):
     id = models.AutoField(primary_key=True)

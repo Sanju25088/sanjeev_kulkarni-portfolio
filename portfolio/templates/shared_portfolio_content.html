@@ -217,6 +217,7 @@
                             {% if project.technologies %}
                             <p class="small text-info">{{ project.technologies }}</p>
                             {% endif %}
+                            <a href="{{ project.project_link }}" target="_blank"  class="btn btn-sm btn-outline-primary"><i class="fas fa-external-link-alt"></i> Link </a>
                             {% if admin_mode and request.user.is_staff %}
                             <div class="btn-group mt-2" role="group">
                                 <a href="{% url 'edit_project' project.pk %}"
