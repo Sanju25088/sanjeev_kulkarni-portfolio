@@ -68,7 +68,7 @@
     h2 { font-size: 1.35rem; }
     p, li { font-size: 1rem; line-height: 1.6; } 
     
-    /* Centering Fixes */
+    /* Centering Fixes (General Profile Card) */
     .profile-card {
         display: flex !important;
         flex-direction: column !important;
@@ -80,18 +80,17 @@
         padding-bottom: 1.25rem !important;
     }
 
-    .profile-card .d-flex,
-    .profile-card .justify-content-start {
-        justify-content: center !important;
-        width: 100%;
-    }
-
-    .profile-card .btn {
+    /* NEW FIX: Center all text elements (Name, Designation, Bio) */
+    .profile-card h1, 
+    .profile-card h2, 
+    .profile-card h3,
+    .profile-card p,
+    .profile-card span {
+        text-align: center !important;
         width: 100% !important;
-        max-width: 250px; 
-        margin: 0 auto 12px auto !important; 
-        display: flex !important;
-        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important; /* Forces block level for reliable centering */
     }
 
     /* Bio Text Overflow Fix */
@@ -102,6 +101,36 @@
         box-sizing: border-box;
         width: 100%;
         margin: 0 auto 1rem auto; 
+    }
+
+    /* NEW FIX: Button and standard flex container */
+    .profile-card .d-flex,
+    .profile-card .justify-content-start {
+        flex-direction: column !important;
+        align-items: center !important; /* CRITICAL: Centers items horizontally in a column */
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* NEW FIX: Ensure the buttons themselves sit in the middle */
+    .profile-card .btn {
+        width: 100% !important;
+        max-width: 250px; 
+        margin: 0 auto 12px auto !important; 
+        display: flex !important;
+        justify-content: center !important; /* Centers the text inside the button */
+        align-items: center !important;
+    }
+
+    /* NEW FIX: Social Icons Container (Forces row items to center horizontally) */
+    .profile-card .social-icons,
+    .profile-card .d-flex:last-of-type { 
+        flex-direction: row !important; /* Keeps them in a horizontal line */
+        justify-content: center !important; /* CRITICAL: Centers items horizontally in a row */
+        align-items: center !important;
+        width: 100% !important;
+        gap: 1.5rem !important; 
+        margin-top: 1rem !important;
     }
 
     /* Convert horizontal forms and buttons to stack */
@@ -182,8 +211,6 @@
     }
 
     /* --- UPDATED SKILL GRID (1 in a row on tiny screens) --- */
-    /* Note: If you prefer they stay 2-in-a-row even on tiny screens, 
-       you can delete this specific `.skills-grid` block. */
     .skills-grid {
         grid-template-columns: 1fr;
     }
