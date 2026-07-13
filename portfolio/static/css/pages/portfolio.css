@@ -1,275 +1,223 @@
 /* ==========================================================================
-   HERO LAYOUT & TYPOGRAPHY
+   GLOBAL PROFIlE CENTERING FIXES (Desktop & Base)
    ========================================================================== */
+
 .profile-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;      
-    justify-content: center;  
-    text-align: center;       
-    transform: translateX(-50px); /* Move slightly left for desktop */
-}
-
-.profile-card h1 {
-    font-size: clamp(5rem, 6.5vw, 6rem); 
-    font-weight: 700;
-    line-height: 1.2;
-    background: linear-gradient(135deg, #ffffff 20%, var(--clr-accent, #06b6d4) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    transform: translateX(30px);
-}
-
-.profile-card p,
-.profile-card h2,
-.profile-card h3,
-.profile-card .lead {
-    font-size: clamp(2rem, 2.3vw, 2.5rem);
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.profile-about {
-    max-width: 480px;
-    margin: 15px auto;
-    font-size: 20px;
-    line-height: 1.7;
-    text-align: center;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-
-}
-
-/* ==========================================================================
-   FUTURISTIC GLASS & TEXT EFFECTS
-   ========================================================================== */
-.futuristic-glass {
-    background: rgba(15, 23, 42, 0.6) !important; 
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-    color: #FFFFFF;
-}
-
-.profile-name {
-    font-size: clamp(2.1rem, 3.2vw, 2.9rem);
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-    background: linear-gradient(135deg, #FFFFFF 30%, #ffffff 100%);
-    background-clip: text;            
-    -webkit-background-clip: text;    
-    -webkit-text-fill-color: transparent;
-    color: transparent;               
-    letter-spacing: -1px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
 }
 
 .profile-designation {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 4.05rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    transform: translateX(30px);
-
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1.5rem; 
 }
 
-.profile-tagline,
-.profile-tagline.text-muted {
-    color: #ffffff !important;
-}
-
-.profile-meta p {
-    margin-bottom: 0.4rem;
-    font-size: 1rem;
-    color: #D1D5DB;
-}
-
-.profile-meta strong {
-    color: #ffffff;
-}
-
-.cyber-link {
-    color: #06B6D4;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.cyber-link:hover {
-    color: #FFFFFF;
-    text-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
-}
-
-/* ==========================================================================
-   GRIDS, TIMELINES & SKILLS
-   ========================================================================== */
-.skill-card {
-    background: rgba(15, 23, 42, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px; 
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(2, 6, 23, 0.2);
-    height: auto !important;
-    min-height: 0 !important;
-    display: block !important; 
-}
-
-.skill-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(6, 182, 212, 0.45);
-    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.15);
-}
-
-.progress {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.horizontal-bar-fill {
-    background-color: var(--clr-accent, #06b6d4); 
-    width: 0; 
-    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.section-card:hover { 
-    transform: translateY(-5px); 
-    border-color: rgba(255, 255, 255, 0.15) !important; 
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4) !important; 
-}
-
-.section-card ul.list-unstyled li { 
-    position: relative; 
-    padding-left: 1.5rem; 
-    padding-bottom: 0.5rem; 
-    border-left: 1px solid rgba(255, 255, 255, 0.1); 
-    margin-left: 0.5rem; 
-}
-
-.section-card ul.list-unstyled li::before { 
-    content: ''; 
-    position: absolute; 
-    left: -5px; 
-    top: 5px; 
-    width: 9px; 
-    height: 9px; 
-    border-radius: 50%; 
-    background: var(--clr-accent, #06b6d4); 
-    box-shadow: 0 0 10px var(--clr-accent, #06b6d4); 
-}
-
-/* ==========================================================================
-   BUTTONS & PROJECTS
-   ========================================================================== */
-.cyber-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 11px 24px; 
-    border: none;
-    border-radius: 10px; 
-    color: #fff !important;
-    font-size: 20px; 
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-    transform: translateX(50px);
-
-}
-
-/* Ensure the SVG icon scales nicely and inherits the white text color */
-.cyber-btn svg {
-    transition: transform 0.3s ease;
-}
-
-/* Add a hover effect to make the buttons feel alive */
-.cyber-btn:hover {
-    filter: brightness(1.1);
-}
-
-/* Slightly scale the icon on hover for a polished feel */
-.cyber-btn:hover svg {
-    transform: scale(1.15);
-}
-
-
-/* Cleaned up duplicate button declarations */
-.projects-btn { background: linear-gradient(135deg, #00F260, #0575E6); box-shadow: 0 5px 14px rgba(5,117,230,.20); }
-.contact-btn  { background: linear-gradient(135deg, #00C6FF, #0072FF); box-shadow: 0 5px 14px rgba(0,114,255,.20); }
-.resume-btn   { background: linear-gradient(135deg, #8B5CF6, #A855F7); box-shadow: 0 5px 14px rgba(139,92,246,.20); }
-.skills-btn   { background: linear-gradient(135deg, #FF0080, #7928CA); box-shadow: 0 5px 14px rgba(121,40,202,.20); }
-
-.project-card {
-    min-height: 420px;
-    padding: 25px !important;
-    border-radius: 18px !important;
-    background: linear-gradient(145deg, #111827, #1f2937) !important;
-    transition: all 0.3s ease;
+/* Button wrapper: ensures buttons stack cleanly */
+.profile-card .btn-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-
-.project-card h5 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-bottom: 15px !important;
-}
-
-.project-card img {
+    align-items: center;
+    gap: 12px;
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px !important;
-    margin-bottom: 18px !important;
 }
 
-.project-card .text-info {
-    font-size: 15px;
-    font-weight: 600;
+/* Uniform, strictly centered buttons */
+.profile-card .btn {
+    width: 100% !important;
+    max-width: 250px !important; 
+    margin: 0 auto !important;
+    display: inline-flex !important;
+    justify-content: center !important; 
+    align-items: center !important;
 }
 
-.project-card p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #e5e7eb;
+/* Force social icons to stay in a centered row */
+.profile-card .social-icons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important; 
+    align-items: center !important;
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1rem;
 }
 
-.project-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+/* ==========================================================================
+   SKILLS GRID (Base / Desktop) 
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    /* Automatically fits as many 200px (or larger) cards into a row as possible */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
 }
 
-.project-card .small {
-    margin-top: auto;
-    padding-top: 12px;
-    font-weight: 600;
+.skills-grid .skill-card {
+    height: 100%;
+    margin-bottom: 0; 
 }
 
-.project-card .btn-group {
-    margin-top: 20px !important;
+/* ==========================================================================
+   TABLET RESPONSIVE (< 992px)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    main.container { 
+        padding-top: 4rem !important; 
+    }
+    
+    /* CRITICAL FIX: Reset the desktop transform offsets so they don't break mobile */
+    .profile-card { transform: translateX(0) !important; }
+    .profile-card h1 { transform: translateX(0) !important; }
+    
+    /* Adjust Hero for smaller screens */
+    .profile-card .d-flex { 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center !important; 
+        gap: 1.5rem; 
+    }
+    
+    .profile-card .text-end { 
+        text-align: center !important; 
+        width: 100%; 
+    }
+    
+    /* Dashboard Header */
+    main.container > .d-flex.mb-4 { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 1.25rem; 
+        padding: 1.5rem; 
+    }
 }
 
-.project-card .btn {
-    padding: 7px 18px;
-    border-radius: 8px;
+/* ==========================================================================
+   MOBILE RESPONSIVE (< 768px)
+   ========================================================================== */
+@media (max-width: 767.98px) {
+    /* Compress Spacing */
+    main.container section { 
+        padding: 2.5rem 0; 
+    }
+    
+    .card.shadow-sm, 
+    .section-card { 
+        padding: 1.25rem !important; 
+    }
+    
+    /* Typography Scaling */
+    .profile-card h1 { font-size: clamp(5rem, 6.5vw, 6rem); line-height: 1.2; }
+    .section-title { font-size: clamp(1.5rem, 4vw, 1.8rem); }
+    h2 { font-size: 1.35rem; }
+    p, li { font-size: 1rem; line-height: 1.6; } 
+    
+    /* Profile Card Specific Mobile Spacing */
+    .profile-card {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+    }
+
+    .profile-card .d-flex,
+    .profile-card .justify-content-start {
+        justify-content: center !important;
+        width: 100%;
+    }
+
+    /* Bio Text Overflow Fix */
+    .profile-card p,
+    .profile-about { 
+        padding-left: 15px; 
+        padding-right: 15px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0 auto 1rem auto; 
+    }
+
+    /* Convert horizontal forms and buttons to stack */
+    main.container form .btn,
+    .btn-group { 
+        width: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 0.75rem; 
+    }
+    
+    /* Mobile Touch Targets */
+    .btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn-group .btn { 
+        border-radius: 8px !important; 
+        margin: 0 !important; 
+    }
+    
+    /* Timelines */
+    .section-card ul.list-unstyled li { 
+        padding-left: 0.5rem; 
+    }
+    
+    .section-card ul.list-unstyled li .d-flex { 
+        flex-direction: column; 
+        gap: 0.5rem; 
+        align-items: flex-start; 
+    }
+    
+    /* Modals & Login Box */
+    .auth-card, 
+    main.container .col-md-6 .card { 
+        margin: 1.5rem auto; 
+        padding: 1.5rem !important; 
+        width: 100%; 
+        max-width: 100%;
+    }
+
+    /* --- UPDATED SKILL GRID (2 in a row on standard mobile) --- */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem; 
+    }
+
+    .skill-card {
+        padding: 1rem !important; /* Tighter padding to fit 2 cards comfortably */
+    }
+
+    .skill-card .d-flex { 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        gap: 0.5rem;
+    }
+}
+
+/* ==========================================================================
+   SMALL MOBILE (< 480px)
+   ========================================================================== */
+@media (max-width: 479.98px) {
+    /* Scale down complex inputs */
+    form input[type="file"] { 
+        padding: 1rem 0.5rem; 
+        text-align: center; 
+        font-size: 0.9rem;
+    }
+    
+    form input[type="file"]::-webkit-file-upload-button { 
+        display: block; 
+        margin: 0 auto 0.75rem auto; 
+        width: 100%; 
+    }
+
+    /* --- UPDATED SKILL GRID (1 in a row on tiny screens) --- */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 }
