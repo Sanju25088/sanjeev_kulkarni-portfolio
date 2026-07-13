@@ -22,7 +22,7 @@ class Personal_Information(models.Model):
     github = models.URLField(max_length=200,null =True,blank = True)
     linkedin = models.URLField(max_length=200,null =True,blank = True)
     portfolio_url =	models.URLField(max_length=200,null =True,blank = True)
-    resume = models.FileField(upload_to='resumes/',blank = True,null=True)
+    resume = models.CharField(max_length=255, blank=True, null=True)
     profile_photo = models.ImageField(upload_to='profile_image/',blank=True,null = True)
 
 class Education(models.Model):
