@@ -376,30 +376,63 @@
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2>Contact</h2>
             </div>
+            
             {% if not request.user.is_staff %}
             <form method="post" action="{% url 'contact' %}">
                 {% csrf_token %}
+                
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
+                    <label for="name" class="form-label fw-bold">Name:</label>
+                    <input type="text" id="name" name="name" 
+                           class="form-control {% if form.name.errors %}is-invalid{% endif %}" 
+                           value="{{ form.name.value|default:'' }}" required>
+                    {% if form.name.errors %}
+                        <div class="invalid-feedback d-block mt-1">{{ form.name.errors.0 }}</div>
+                    {% endif %}
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
+                    <label for="email" class="form-label fw-bold">Email:</label>
+                    <input type="email" id="email" name="email" 
+                           class="form-control {% if form.email.errors %}is-invalid{% endif %}" 
+                           value="{{ form.email.value|default:'' }}" required>
+                    
+                    {% if form.email.errors %}
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const emailInput = document.getElementById("email");
+                                
+                                // Inject the Django error into the browser's native validation system
+                                emailInput.setCustomValidity("{{ form.email.errors.0|escapejs }}");
+                                
+                                // Force the browser to display the popup bubble immediately
+                                emailInput.reportValidity();
+                                
+                                // Clear the error as soon as the user starts typing to fix it
+                                emailInput.addEventListener("input", function() {
+                                    emailInput.setCustomValidity("");
+                                });
+                            });
+                        </script>
+                    {% endif %}
                 </div>
 
                 <div class="mb-3">
-                    <label for="message" class="form-label">Message:</label>
-                    <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                    <label for="message" class="form-label fw-bold">Message:</label>
+                    <textarea id="message" name="message" rows="5" 
+                              class="form-control {% if form.message.errors %}is-invalid{% endif %}" 
+                              required>{{ form.message.value|default:'' }}</textarea>
+                    {% if form.message.errors %}
+                        <div class="invalid-feedback d-block mt-1">{{ form.message.errors.0 }}</div>
+                    {% endif %}
                 </div>
 
-                <button type="submit" class="btn btn-success btn-sm px-3">Send Message</button>
+                <button type="submit" class="btn btn-success btn-sm px-3 mt-2">Send Message</button>
             </form>
             {% endif %}
-
         </section>
     </div>
+</div>
 
 
 

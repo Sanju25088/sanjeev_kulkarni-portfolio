@@ -139,5 +139,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places to look for static files (your project-level static folder)
 
+# Set this to Indian Standard Time
+TIME_ZONE = 'Asia/Kolkata'
+
+# Ensure Django uses timezone-aware datetimes
+USE_TZ = True
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

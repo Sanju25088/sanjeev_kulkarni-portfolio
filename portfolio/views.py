@@ -21,7 +21,7 @@ from .models import (
     Extracurricular_Activities,
     Contact
 )
-
+from django.contrib import messages
 
 def is_admin_user(user):
     return user.is_authenticated and user.is_staff
@@ -291,28 +291,33 @@ def delete_certification(request, pk):
     return render(request, 'confirm_delete.html', {'object': certification, 'title': 'Delete Certification'})
 
 
+
+
 def contact(request):
     print("Method:", request.method)
 
     if request.method == "POST":
         print(request.POST)
-
         form = ContactForm(request.POST)
 
         if form.is_valid():
             print("Form is valid")
             form.save()
+            # Optional: Add a success flash message before redirecting
+            messages.success(request, "Your message has been sent successfully!")
             return redirect("home_page")
         else:
             print("Form errors:", form.errors)
+            # Optional: Add an error message alert
+            messages.error(request, "Please fix the error in the form below.")
 
     else:
         form = ContactForm()
 
-    return render(request, "shared_portfolio_content.html", {
+    # When form is invalid, this returns the form containing the errors
+    return render(request, "home.html", {
         "form": form,
     })
-        
 
 
 
