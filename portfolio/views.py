@@ -26,19 +26,23 @@ from django.contrib import messages
 def is_admin_user(user):
     return user.is_authenticated and user.is_staff
 
-
-def home_page(request):
-    context = {
+def get_portfolio_context(request):
+    """Helper function to fetch all portfolio data so we don't duplicate code."""
+    return {
         'personal_info': Personal_Information.objects.first(),
         'educations': Education.objects.order_by('-end_year'),
         'skills': Technical_Skils.objects.all(),
         'internships': Internship.objects.prefetch_related('projects').all(),
         'projects': Key_Projects.objects.all(),
         'certifications': Certifications.objects.order_by('-year'),
-        'contact' : Contact.objects.all().order_by("-created_at"),
-        'activities' : Extracurricular_Activities.objects.all()
-
+        'contact': Contact.objects.all().order_by("-created_at"),
+        'activities': Extracurricular_Activities.objects.all()
     }
+
+def home_page(request):
+    context = get_portfolio_context(request)
+    # Initialize a clean form for normal GET requests
+    context['form'] = ContactForm()
     return render(request, 'home.html', context)
 
 
@@ -292,33 +296,28 @@ def delete_certification(request, pk):
 
 
 
-
 def contact(request):
-    print("Method:", request.method)
-
     if request.method == "POST":
-        print(request.POST)
         form = ContactForm(request.POST)
 
         if form.is_valid():
-            print("Form is valid")
             form.save()
-            # Optional: Add a success flash message before redirecting
-            messages.success(request, "Your message has been sent successfully!")
+            messages.success(request, "Thank you! Your message has been sent successfully.")
             return redirect("home_page")
+        
         else:
-            print("Form errors:", form.errors)
-            # Optional: Add an error message alert
-            messages.error(request, "Please fix the error in the form below.")
+            # Form is invalid (e.g., ZeroBounce failed the email check)
+            messages.error(request, "Could not send message. Please fix the error indicated below.")
+            
+            # 1. Grab the full bundle of portfolio context data
+            context = get_portfolio_context(request)
+            # 2. Add the current INVALID form (carrying the validation errors) into that context
+            context['form'] = form
+            
+            # 3. Render 'home.html' directly so the background video and all sections load perfectly
+            return render(request, 'home.html', context)
 
-    else:
-        form = ContactForm()
-
-    # When form is invalid, this returns the form containing the errors
-    return render(request, "home.html", {
-        "form": form,
-    })
-
+    return redirect("home_page")
 
 
 
