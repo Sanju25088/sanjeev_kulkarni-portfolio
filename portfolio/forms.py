@@ -143,5 +143,5 @@ class ContactForm(forms.ModelForm):
         except requests.RequestException as e:
             print("🛑 REQUEST EXCEPTION:", e)
             pass
-
+        return email
        
